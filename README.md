@@ -19,12 +19,16 @@ Le micro service est un serveur nodejs/express
 - GET /sha256/<str>
 Chacune des ces routes renverra le hash MD5 ou SHA256de la chaîne fournie enparamètre url (<str>)
 
-Exemples d’utilisation 
+<p>Exemples d’utilisation</p> 
+La requête http GET/md5/hello renverra le json suivant:
+    
 ```
-La requête http GET/md5/hellorenverra le json suivant:{"hash":"md5","cleartext":"hello","hashedtext":"5d41402abc4b2a76b9719d911017c592"}
+{"hash":"md5","cleartext":"hello","hashedtext":"5d41402abc4b2a76b9719d911017c592"}
 ```
+La requête http GET/sha256/hello renverra le json suivant:
+    
 ```
-La requête http GET/sha256/hellorenverra le jsonsuivant:{"hash":"sha256","cleartext":"hello","hashedtext":"2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"}
+{"hash":"sha256","cleartext":"hello","hashedtext":"2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"}
 ```
 
 ### Build
