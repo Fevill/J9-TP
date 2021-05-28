@@ -6,7 +6,9 @@
 .vagrant/
 
 # Log files (if you are creating logs in debug mode, uncomment this)
-# *.log
+*.log
+*/machines/*.log
+**/machines/mas-ub/ubuntu-bionic-18.04-cloudimg-console.log
 
 ### Vagrant Patch ###
 *.box
