@@ -1,10 +1,10 @@
-FROM node:alpine3.12
+FROM node:12-alpine
 
 WORKDIR /app
 
-COPY micro-service/src/* /app
-COPY micro-service/package.json /app
+COPY ./micro-service/src ./src
+COPY ./micro-service/package.json ./
 
 RUN npm install
-
+EXPOSE 6000
 CMD ["npm","start"]
