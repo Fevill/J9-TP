@@ -5,3 +5,15 @@ services:
     restart: always
     ports:
       - "6000:3001"
+
+  micro-service:
+    image: ng-micro-service:1.0
+    restart: always
+    ports:
+      - "6000:3002"
+      
+  micro-service:
+    image: ng-micro-service:1.0
+    restart: always
+    ports:
+      - "6000:3003"
