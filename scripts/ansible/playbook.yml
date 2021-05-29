@@ -15,7 +15,6 @@
       - curl
 
  tasks: 
-
   - name: Mise à jour des packages
     apt:
       name: "*"
@@ -53,6 +52,13 @@
       name: "docker-ce"
       state: latest
 
+  - name: Installation de docker compose
+    remote_user: ubuntu
+    get_url: 
+      url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+      dest: /usr/local/bin/docker-compose
+      mode: 'u+x,g+x'
+
   - name: Récuperation du code source
     git:
       repo: "https://github.com/Fevill/J9-TP"
@@ -62,3 +68,5 @@
     shell: "./scripts/build.sh"
     args:
       chdir: "{{destdir}}"
+
+
