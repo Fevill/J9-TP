@@ -4,16 +4,16 @@ services:
     image: ng-micro-service:1.0
     restart: always
     ports:
-      - "6000:3001"
+      - "3001:6000"
 
   micro-service-b:
     image: ng-micro-service:1.0
     restart: always
     ports:
-      - "6000:3002"
+      - "3002:6000"
       
   micro-service-c:
     image: ng-micro-service:1.0
     restart: always
     ports:
-      - "6000:3003"
+      - "3003:6000"
