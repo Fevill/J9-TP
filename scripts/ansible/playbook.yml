@@ -1,0 +1,64 @@
+-
+ name: VM Ubuntu
+ hosts: vm_ubuntu
+ become: yes
+
+ vars:
+  - destdir: "apps/J9-TP"
+    packagesdep:
+      - git
+      - apt-transport-https
+      - ca-certificates
+      - wget
+      - software-properties-common
+      - gnupg2
+      - curl
+
+ tasks: 
+
+  - name: Mise à jour des packages
+    apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: Installation des packages
+    apt:
+      name: "{{ packagesdep }}"
+      force_apt_get: yes
+      state: latest
+      update_cache: yes
+      
+  - name: Ajoute de la clé  officiel de docker
+    apt_key:
+      url: https://download.docker.com/linux/debian/gpg
+      state: present
+
+  - name: Ajoute du répertoire officiel
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+      state: present
+
+  - name: Index du répertoir
+    become: yes
+    apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: Installation de docker
+    apt:
+      name: "docker-ce"
+      state: latest
+
+  - name: Récuperation du code source
+    git:
+      repo: "https://github.com/Fevill/J9-TP"
+      dest: "{{destdir}}"
+
+  - name: Build du code source
+    shell: "./scripts/start.sh"
+    args:
+      chdir: "{{destdir}}"
