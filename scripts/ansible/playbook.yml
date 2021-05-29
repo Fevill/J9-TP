@@ -59,6 +59,6 @@
       dest: "{{destdir}}"
 
   - name: Build du code source
-    shell: "./scripts/start.sh"
+    shell: "./scripts/build.sh"
     args:
       chdir: "{{destdir}}"
