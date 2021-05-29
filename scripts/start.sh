@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "Start"
 sudo ./build.sh
-sudo docker run ng-micro-service:1.0 -p 6000:6000
+sudo docker run -p 6000:6000 ng-micro-service:1.0 
