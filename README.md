@@ -43,3 +43,10 @@ Démarrer le service en local avec la commande suivante :
 ```
 ./scripts/start.sh
 ```
+## Scripts
+
+### Ansible
+
+- cd scripts/ansible
+- ansible-playbook playbook.yml -i hosts.txt
+
